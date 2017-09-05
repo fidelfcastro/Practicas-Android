@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public final static String MICONSTANTE="message";
-    public final static int RETURN_CODE=1;
+    public final static int RETURN_CODE = 1;
 
     ArrayList<Movies> movieArray = new ArrayList<Movies>();
 //        add(new Movies("test", 120,"test","test", 1994));
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         Button btn_click = (Button) findViewById(R.id.btnClick);
         Button addMovieBtn_click = (Button) findViewById(R.id.addMovie);
+
         final EditText txt_name = (EditText) findViewById(R.id.txtName);
         final EditText txt_movieName = (EditText) findViewById(R.id.movieName);
         setSupportActionBar(toolbar);
@@ -80,27 +82,20 @@ public class MainActivity extends AppCompatActivity {
                 );
                 movieArray.add(movie);
                 intent.putExtra("Array", movieArray);
-                startActivity(intent);
-//                startActivityForResult(intent,RETURN_CODE);
+                //startActivity(intent);
+                startActivityForResult(intent,RETURN_CODE);
             }
         });
 
-//        addMovieBtn_click.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String name = txt_movieName.getText().toString();
-//                Movies movie = new Movies(name, 120,"Quentin Tarantino","Drama", 1994);
-//                MovieListActivity.movieArray.add(movie);
-//                Toast.makeText(getApplicationContext(), name, Toast.LENGTH_LONG).show();
-//
-//
-//            }
-//        });
+
+
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode == RESULT_OK && requestCode == RETURN_CODE) {
-
+            movieArray = data.getParcelableArrayListExtra("returnResult");
+            Toast.makeText(getApplicationContext(),"Movie size: " , Toast.LENGTH_LONG).show();
         }
     }
 
