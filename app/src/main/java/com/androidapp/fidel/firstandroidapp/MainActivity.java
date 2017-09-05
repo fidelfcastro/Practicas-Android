@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MovieListActivity.class);
                 String name = txt_movieName.getText().toString();
                 Movies movie = new Movies(
-                  name, 120, "test", "test", 1994
+                  name, 120, "director", "genre", 1994
                 );
                 movieArray.add(movie);
                 intent.putExtra("Array", movieArray);
