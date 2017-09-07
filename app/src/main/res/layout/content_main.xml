@@ -31,9 +31,9 @@
         android:text="@string/btn_click"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_alignBottom="@+id/txtName"
-        android:layout_marginStart="15dp"
-        android:layout_alignEnd="@+id/addMovie" />
+        android:layout_alignTop="@+id/txtName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="27dp" />
 
     <EditText
         android:id="@+id/movieName"
@@ -43,9 +43,9 @@
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="102dp"
-        android:layout_below="@+id/txtName"
-        android:layout_alignStart="@+id/txtName"
-        android:layout_marginTop="34dp" />
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/btnClick"
+        android:layout_alignEnd="@+id/btnClick" />
 
     <Button
         android:id="@+id/addMovie"
@@ -54,8 +54,111 @@
         android:text="ADD"
         tools:layout_editor_absoluteX="247dp"
         tools:layout_editor_absoluteY="97dp"
-        android:layout_marginStart="30dp"
-        android:layout_alignBaseline="@+id/movieName"
-        android:layout_alignBottom="@+id/movieName"
-        android:layout_toEndOf="@+id/movieName" />
+        android:layout_below="@+id/yearText"
+        android:layout_alignEnd="@+id/yearText" />
+
+    <Button
+        android:id="@+id/rmMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Movie"
+        android:layout_alignBottom="@+id/rmMovieText"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/rmMovieText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="13dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/movieName"
+        android:layout_marginEnd="11dp" />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Movie Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:layout_alignTop="@+id/movieName"
+        android:layout_alignStart="@+id/txtName" />
+
+    <TextView
+        android:id="@+id/durationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/nameTextView"
+        android:layout_below="@+id/movieName"
+        android:layout_marginTop="15dp"
+        android:text="DURATION"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+    <TextView
+        android:id="@+id/directorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/durationTextView"
+        android:layout_below="@+id/dirText"
+        android:layout_marginTop="11dp"
+        android:text="DIRECTOR"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+    <TextView
+        android:id="@+id/genreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GENRE"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:layout_alignTop="@+id/genreText"
+        android:layout_alignEnd="@+id/directorTextView" />
+
+    <TextView
+        android:id="@+id/yearTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YEAR"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/genreText"
+        android:layout_alignEnd="@+id/genreTextView" />
+
+    <EditText
+        android:id="@+id/dirText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_alignTop="@+id/durationTextView"
+        android:layout_alignStart="@+id/movieName" />
+
+    <EditText
+        android:id="@+id/durationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_alignTop="@+id/directorTextView"
+        android:layout_alignStart="@+id/dirText" />
+
+    <EditText
+        android:id="@+id/genreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/durationText"
+        android:layout_alignStart="@+id/durationText" />
+
+    <EditText
+        android:id="@+id/yearText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_alignTop="@+id/yearTextView"
+        android:layout_alignStart="@+id/genreText" />
+
 </RelativeLayout>

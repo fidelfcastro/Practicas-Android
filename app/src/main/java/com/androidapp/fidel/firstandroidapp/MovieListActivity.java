@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,32 +16,21 @@ public class MovieListActivity extends AppCompatActivity {
     MovieAdapter objectMovieAdapter;
     ListView objectListView;
     ArrayList<Movies> movieArray;
+    String nameDelete;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-       // Button deleteMovieBtn = (Button) findViewById(R.id.deleteMovie);
 
         objectListView=(ListView) findViewById(R.id.lv_movieList);
         objectMovieAdapter=new MovieAdapter(this);
         objectListView.setAdapter(objectMovieAdapter);
 
-
         movieArray = this.getIntent().getParcelableArrayListExtra("Array");
         fillMovieDatabase(movieArray);
 
-//        deleteMovieBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                View parentRow = (View) view.getParent();
-////                ListView listView = (ListView) parentRow.getParent();
-////                final int position = listView.getPositionForView(parentRow);
-//                //movieArray.remove(position);
-//
-//            }
-//        });
     }
 
 
@@ -65,5 +55,17 @@ public class MovieListActivity extends AppCompatActivity {
         }
 
         objectMovieAdapter.notifyDataSetChanged();
+    }
+
+    private void deleteMovieDatabase(ArrayList<Movies> lMovies) {
+        objectMovieAdapter.clear();
+
+        for(Movies oMovie:lMovies) {
+            objectMovieAdapter.remove(oMovie);
+
+        }
+
+        objectMovieAdapter.notifyDataSetChanged();
+
     }
 }

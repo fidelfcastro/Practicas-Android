@@ -12,6 +12,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import android.content.Intent;
+import android.graphics.Movie;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
 /**
  * Created by fidel on 8/25/2017.
  */
@@ -20,7 +31,6 @@ public class MovieAdapter extends ArrayAdapter<Movies>{
     public MovieAdapter(Context context){
         super(context,R.layout.movie_row,R.id.txtMovieName);
     }
-
 
     @NonNull
     @Override

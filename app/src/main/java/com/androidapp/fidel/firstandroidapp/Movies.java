@@ -9,12 +9,12 @@ import android.os.Parcelable;
 
 public class Movies implements Parcelable{
     private String name;
-    private Integer duration;
+    private String duration;
     private String director;
     private String genre;
-    private Integer year;
+    private String year;
 
-    public Movies(String name, Integer duration, String director, String genre, Integer year) {
+    public Movies(String name, String duration, String director, String genre, String year) {
         this.name = name;
         this.duration = duration;
         this.director = director;
@@ -24,10 +24,10 @@ public class Movies implements Parcelable{
 
     public Movies(Parcel in) {
         name=in.readString();
-        duration=in.readInt();
+        duration=in.readString();
         director=in.readString();
         genre=in.readString();
-        year=in.readInt();
+        year=in.readString();
     }
     public String getName() {
         return name;
@@ -37,11 +37,11 @@ public class Movies implements Parcelable{
         this.name = name;
     }
 
-    public Integer getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Integer duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
@@ -61,11 +61,11 @@ public class Movies implements Parcelable{
         this.genre = genre;
     }
 
-    public Integer getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -78,10 +78,10 @@ public class Movies implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
-        dest.writeInt(duration);
+        dest.writeString(duration);
         dest.writeString(director);
         dest.writeString(genre);
-        dest.writeInt(year);
+        dest.writeString(year);
     }
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator(){
